@@ -3,17 +3,40 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# we can configure exactly when and why the pipeline will trigger
 trigger:
 - master
+
+# By default it also will trigger on every PR
+
+# Define what kind of computer the build will run on. 
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: dotnet build --configure Release
+  displayName: dotnet build
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
+# i don't really ahve any tests
+# - scirpt: dotnet test 
+# displayName: dotnet test
+
+# static analysis with SonarQube 
+# with staitc analysis, the sourece code is analysed for 
+# poor docing practies , for code smells  (makes the project less mantainable)
+#   Technical debt - (not mantainable for future implementations)
+#  code coverage  - how much of the code is covered by unit test. 
+# . 
+
+# we can do deployment to various places from Azure Pipelines
+# web Deploy 
+# deploy to various cloud services
+
+
+
+
+
+
+
